@@ -1,8 +1,28 @@
-# React + Vite
+# Countries
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The main idea is to create a site where you can see all the countries with their flag and name.
 
-Currently, two official plugins are available:
+<!-- ## ⚙️ Function of the website -->
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Technologies and tools used
+
+- [ReactJS](https://es.react.dev/)
+- [Vite](https://vitejs.dev/)
+
+### Dependencies
+
+- [sass](https://sass-lang.com/)
+- [React-icons](https://www.npmjs.com/package/react-icons)
+- [React-router](https://reactrouter.com/en/main)
+
+### API
+
+- [Rest Countries](https://restcountries.com/).
+
+## 📊 Project status
+
+| Status         | Start date | End date |
+| -------------- | ---------- | -------- |
+| ⌛ In progress | 2024-08-20 |          |
+
+<!-- ## 🌐 Website -->
