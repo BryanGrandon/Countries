@@ -1,0 +1,15 @@
+@use "../imports/tools" as *;
+@use "../imports/settings" as *;
+
+.main {
+  &__list-of-countries {
+    @include customFlex(row, wrap, space-evenly, normal);
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .main__list-of-countries {
+    border: 1px solid #f00;
+  }
+}
