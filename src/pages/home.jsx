@@ -1,14 +1,15 @@
 import React from "react";
 import { useCountriesContext } from "../context/countries-context";
+import Header from "../components/container/header";
 
 function Home() {
   let { saved } = useCountriesContext();
 
   return (
-    <article>
-      {saved.map((e) => (
-        <div>
-          <img src={e.flags.svg} alt="" height="100px" />
+    <article className="bg-shadow">
+      <Header />
+      {saved?.map((e) => (
+        <div key={e.name.common}>
           <p>{e.name.common}</p>
         </div>
       ))}

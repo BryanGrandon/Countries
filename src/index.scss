@@ -4,6 +4,12 @@
 @use "./styles/imports/settings" as *;
 @use "./styles/imports/tools" as *;
 
+body {
+  background-image: url("https://cdn.pixabay.com/photo/2022/02/13/14/50/space-7011298_1280.jpg");
+  background-size: contain;
+  color: $white;
+}
+
 .bg-shadow {
   background-color: #000000bd;
   min-height: 100vh;
