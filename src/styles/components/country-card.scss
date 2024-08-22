@@ -1,0 +1,32 @@
+@use "../imports/tools" as *;
+@use "../imports/settings" as *;
+
+.country-card {
+  width: 13rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $secondary;
+  }
+
+  &__img {
+    width: 13rem;
+    height: 9rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .country-card {
+    width: 100%;
+  }
+}
