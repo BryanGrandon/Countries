@@ -11,21 +11,28 @@ const useCountriesContext = () => {
 function CountriesContextProvider({ children }) {
   const [allCountries, setAllCountries] = useState();
   const [saved, setSaved] = useState();
+  const [countriesLimit, setCountriesLimit] = useState();
 
   const getAllCountries = async () => {
     const data = await getInformation("https://restcountries.com/v3.1/all");
     setAllCountries(data);
     setSaved(data.slice(0, 50));
+    setCountriesLimit(data.length);
   };
 
-  const handlerClick = () => {};
+  const handlerClickMoreCountries = () => {
+    let newCountries = allCountries?.slice(saved.length, saved.length + 50);
+    setSaved([...saved, ...newCountries]);
+  };
 
   useEffect(() => {
     getAllCountries();
   }, []);
 
   return (
-    <CountriesContext.Provider value={{ saved }}>
+    <CountriesContext.Provider
+      value={{ saved, countriesLimit, handlerClickMoreCountries }}
+    >
       {children}
     </CountriesContext.Provider>
   );
