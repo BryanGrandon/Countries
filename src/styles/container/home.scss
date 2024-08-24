@@ -5,20 +5,10 @@
   &__list-of-countries {
     @include customFlex(row, wrap, space-evenly, normal);
     gap: 1rem;
-    padding: 0 0 2rem;
   }
   &__button {
-    cursor: pointer;
-    border-radius: 1rem;
-    background-color: $main;
-    padding: 0.5rem 1.5rem;
-    margin: auto;
-    transition: background 0.3s ease;
-
-    &:hover {
-      background-color: $secondary;
-      color: $main;
-    }
+    padding: 2rem 0;
+    @include customFlex(row, wrap, center, center);
   }
 
   &__options {

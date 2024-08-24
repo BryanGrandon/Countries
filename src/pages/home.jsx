@@ -3,6 +3,7 @@ import { useCountriesContext } from "../context/countries-context";
 import Header from "../components/container/header";
 import CountryCard from "../components/country-card";
 import Search from "../components/search";
+import DefaultButton from "../components/default-button";
 
 function Home() {
   // variable
@@ -20,7 +21,7 @@ function Home() {
   return (
     <article className="bg-shadow">
       <Header />
-      <article className="main default-size">
+      <main className="main default-size">
         <section className="main__options">
           <Search onChange={handlerChangeSearch} />
         </section>
@@ -33,14 +34,16 @@ function Home() {
             />
           ))}
         </section>
-        {saved?.length < countriesLimit ? (
-          <button className="main__button" onClick={handlerClickMoreCountries}>
-            More Countries
-          </button>
-        ) : null}
-
+        <section className="main__button">
+          {saved?.length < countriesLimit ? (
+            <DefaultButton
+              text="More Countries"
+              onClick={handlerClickMoreCountries}
+            />
+          ) : null}
+        </section>
         {saved?.length == 0 ? <p>No Found</p> : null}
-      </article>
+      </main>
     </article>
   );
 }
