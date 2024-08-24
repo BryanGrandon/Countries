@@ -21,8 +21,34 @@ function CountriesContextProvider({ children }) {
   };
 
   const handlerClickMoreCountries = () => {
-    let newCountries = allCountries?.slice(saved.length, saved.length + 50);
-    setSaved([...saved, ...newCountries]);
+    if (inChange) {
+      let newCountries = search?.slice(saved.length, saved.length + 50);
+      setSaved([...saved, ...newCountries]);
+    } else {
+      let newCountries = allCountries?.slice(saved.length, saved.length + 50);
+      setSaved([...saved, ...newCountries]);
+    }
+  };
+
+  // Search
+  const [search, setSearch] = useState([]);
+  const [inChange, setInChange] = useState(false);
+
+  const handlerChangeSearch = (e) => {
+    let value = e.target.value.toLowerCase();
+    if (value !== "") {
+      setInChange(true);
+      let filtering = allCountries.filter((e) =>
+        e.name.common.toLowerCase().includes(value)
+      );
+      setSearch(filtering);
+      setSaved(filtering.slice(0, 50));
+      setCountriesLimit(filtering.length);
+    } else {
+      setInChange(false);
+      setSaved(allCountries?.slice(0, 50));
+      setCountriesLimit(allCountries?.length);
+    }
   };
 
   useEffect(() => {
@@ -31,7 +57,12 @@ function CountriesContextProvider({ children }) {
 
   return (
     <CountriesContext.Provider
-      value={{ saved, countriesLimit, handlerClickMoreCountries }}
+      value={{
+        saved,
+        countriesLimit,
+        handlerClickMoreCountries,
+        handlerChangeSearch,
+      }}
     >
       {children}
     </CountriesContext.Provider>

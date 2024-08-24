@@ -2,14 +2,21 @@ import React from "react";
 import { useCountriesContext } from "../context/countries-context";
 import Header from "../components/container/header";
 import CountryCard from "../components/country-card";
+import Search from "../components/search";
 
 function Home() {
-  let { saved, countriesLimit, handlerClickMoreCountries } =
+  let { saved, countriesLimit } = useCountriesContext();
+
+  let { handlerClickMoreCountries, handlerChangeSearch } =
     useCountriesContext();
+
   return (
     <article className="bg-shadow">
       <Header />
       <article className="main default-size">
+        <section className="main__options">
+          <Search onChange={handlerChangeSearch} />
+        </section>
         <section className="main__list-of-countries">
           {saved?.map((e) => (
             <CountryCard
@@ -24,6 +31,8 @@ function Home() {
             More Countries
           </button>
         ) : null}
+
+        {saved?.length == 0 ? <p>No Found</p> : null}
       </article>
     </article>
   );

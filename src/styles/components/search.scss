@@ -1,0 +1,22 @@
+@use "../imports/tools" as *;
+@use "../imports/settings" as *;
+
+.search {
+  @include customFlex(row, nowrap, normal, center);
+  gap: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid $main;
+  border-radius: 0.4rem;
+  max-width: 25rem;
+  margin: auto;
+
+  &__input {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+
+  &__icon {
+    font-size: 1.6rem;
+    color: $main;
+  }
+}
