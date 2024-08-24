@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { getInformation } from "../services/api/get-information";
+import { useNavigate } from "react-router-dom";
 
 const CountriesContext = createContext();
 
@@ -20,11 +21,14 @@ function CountriesContextProvider({ children }) {
     setCountriesLimit(data.length);
   };
 
+  // Button More Countries
   const handlerClickMoreCountries = () => {
     if (inChange) {
+      // Search
       let newCountries = search?.slice(saved.length, saved.length + 50);
       setSaved([...saved, ...newCountries]);
     } else {
+      // Default
       let newCountries = allCountries?.slice(saved.length, saved.length + 50);
       setSaved([...saved, ...newCountries]);
     }
@@ -33,6 +37,12 @@ function CountriesContextProvider({ children }) {
   // Search
   const [search, setSearch] = useState([]);
   const [inChange, setInChange] = useState(false);
+
+  const deleteSearch = () => {
+    setInChange(false);
+    setSaved(allCountries?.slice(0, 50));
+    setCountriesLimit(allCountries?.length);
+  };
 
   const handlerChangeSearch = (e) => {
     let value = e.target.value.toLowerCase();
@@ -44,11 +54,7 @@ function CountriesContextProvider({ children }) {
       setSearch(filtering);
       setSaved(filtering.slice(0, 50));
       setCountriesLimit(filtering.length);
-    } else {
-      setInChange(false);
-      setSaved(allCountries?.slice(0, 50));
-      setCountriesLimit(allCountries?.length);
-    }
+    } else deleteSearch();
   };
 
   useEffect(() => {
@@ -62,6 +68,7 @@ function CountriesContextProvider({ children }) {
         countriesLimit,
         handlerClickMoreCountries,
         handlerChangeSearch,
+        deleteSearch,
       }}
     >
       {children}

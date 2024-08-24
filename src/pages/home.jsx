@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCountriesContext } from "../context/countries-context";
 import Header from "../components/container/header";
 import CountryCard from "../components/country-card";
 import Search from "../components/search";
 
 function Home() {
+  // variable
   let { saved, countriesLimit } = useCountriesContext();
-
+  // handler
   let { handlerClickMoreCountries, handlerChangeSearch } =
     useCountriesContext();
+
+  let { deleteSearch } = useCountriesContext();
+
+  useEffect(() => {
+    deleteSearch();
+  }, []);
 
   return (
     <article className="bg-shadow">
