@@ -6,7 +6,7 @@ import Search from "../components/search";
 import DefaultButton from "../components/default-button";
 
 import Filter from "../components/filter";
-import { regionFilter } from "../services/javascript/filter";
+import { regionFilter, subregionFilter } from "../services/javascript/filter";
 
 function Home() {
   // variable
@@ -35,7 +35,7 @@ function Home() {
           <Filter
             onChange={handlerChangeFilter}
             name="subregion"
-            options={regionFilter}
+            options={subregionFilter}
           />
         </section>
         <section className="main__list-of-countries">

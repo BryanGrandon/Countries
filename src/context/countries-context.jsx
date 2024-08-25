@@ -63,6 +63,13 @@ function CountriesContextProvider({ children }) {
   const [filterType_1, setFilterType_1] = useState("All");
   const [filterType_2, setFilterType_2] = useState("All");
 
+  const filterOption = (data) => {
+    setInFilter(true);
+    setFilter(data);
+    setSaved(data.slice(0, 50));
+    setCountriesLimit(data.length);
+  };
+
   const handlerChangeFilter = async (e) => {
     let type = e.target.name;
     let value = e.target.value;
@@ -74,15 +81,15 @@ function CountriesContextProvider({ children }) {
     } else if (type == "region") {
       setFilterType_1(value);
       setFilterType_2("All");
-      setInFilter(true);
       let url = `https://restcountries.com/v3.1/region/${value}`;
       const data = await getInformation(url);
-      setFilter(data);
-      setSaved(data.slice(0, 50));
-      setCountriesLimit(data.length);
+      filterOption(data);
     } else if (type == "subregion") {
       setFilterType_2(value);
       setFilterType_1("All");
+      let url = `https://restcountries.com/v3.1/subregion/${value}`;
+      const data = await getInformation(url);
+      filterOption(data);
     } else initialFlags();
   };
 
