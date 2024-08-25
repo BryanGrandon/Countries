@@ -1,0 +1,40 @@
+@use "../imports/tools" as *;
+@use "../imports/settings" as *;
+
+.filter {
+  @include customFlex(column, nowrap, normal, normal);
+  border: 2px solid $main;
+  background-color: $black;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+
+  &__header {
+    @include customFlex(row, nowrap, space-between, center);
+    padding: 0.4rem 1rem;
+
+    &-text {
+      color: $secondary;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.list {
+  @include customFlex(column, nowrap, normal, normal);
+  border-top: 2px solid $main;
+  padding: 0.5rem 0;
+
+  &__option {
+    cursor: pointer;
+    text-align: center;
+    padding: 0.5rem 0;
+    text-transform: capitalize;
+    font-family: cursive; //Change
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $secondary;
+    }
+  }
+}

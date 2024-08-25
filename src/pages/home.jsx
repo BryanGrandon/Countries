@@ -5,11 +5,14 @@ import CountryCard from "../components/country-card";
 import Search from "../components/search";
 import DefaultButton from "../components/default-button";
 
+import Filter from "../components/filter";
+import { regionFilter } from "../services/javascript/filter";
+
 function Home() {
   // variable
   let { saved, countriesLimit } = useCountriesContext();
   // handler
-  let { handlerClickMoreCountries, handlerChangeSearch } =
+  let { handlerClickMoreCountries, handlerChangeSearch, handlerChangeFilter } =
     useCountriesContext();
 
   let { deleteSearch } = useCountriesContext();
@@ -24,6 +27,16 @@ function Home() {
       <main className="main default-size">
         <section className="main__options">
           <Search onChange={handlerChangeSearch} />
+          <Filter
+            onChange={handlerChangeFilter}
+            name="region"
+            options={regionFilter}
+          />
+          <Filter
+            onChange={handlerChangeFilter}
+            name="subregion"
+            options={regionFilter}
+          />
         </section>
         <section className="main__list-of-countries">
           {saved?.map((e) => (

@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { getInformation } from "../services/api/get-information";
-import { useNavigate } from "react-router-dom";
 
 const CountriesContext = createContext();
 
@@ -21,33 +20,33 @@ function CountriesContextProvider({ children }) {
     setCountriesLimit(data.length);
   };
 
+  const initialFlags = () => {
+    setSaved(allCountries?.slice(0, 50));
+    setCountriesLimit(allCountries?.length);
+  };
+
   // Button More Countries
   const handlerClickMoreCountries = () => {
-    if (inChange) {
-      // Search
-      let newCountries = search?.slice(saved.length, saved.length + 50);
-      setSaved([...saved, ...newCountries]);
-    } else {
-      // Default
-      let newCountries = allCountries?.slice(saved.length, saved.length + 50);
-      setSaved([...saved, ...newCountries]);
-    }
+    let array = inSearch ? search : inFilter ? filter : allCountries;
+    let newCountries = array?.slice(saved.length, saved.length + 50);
+    setSaved([...saved, ...newCountries]);
   };
 
   // Search
   const [search, setSearch] = useState([]);
-  const [inChange, setInChange] = useState(false);
+  const [inSearch, setInSearch] = useState(false);
 
   const deleteSearch = () => {
-    setInChange(false);
-    setSaved(allCountries?.slice(0, 50));
-    setCountriesLimit(allCountries?.length);
+    setInSearch(false);
+    initialFlags();
   };
 
   const handlerChangeSearch = (e) => {
     let value = e.target.value.toLowerCase();
     if (value !== "") {
-      setInChange(true);
+      setFilterType_1("All");
+      setFilterType_2("All");
+      setInSearch(true);
       let filtering = allCountries.filter((e) =>
         e.name.common.toLowerCase().includes(value)
       );
@@ -55,6 +54,36 @@ function CountriesContextProvider({ children }) {
       setSaved(filtering.slice(0, 50));
       setCountriesLimit(filtering.length);
     } else deleteSearch();
+  };
+
+  // Filter
+  const [inFilter, setInFilter] = useState(false);
+  const [filter, setFilter] = useState();
+  // filter name
+  const [filterType_1, setFilterType_1] = useState("All");
+  const [filterType_2, setFilterType_2] = useState("All");
+
+  const handlerChangeFilter = async (e) => {
+    let type = e.target.name;
+    let value = e.target.value;
+
+    if (value == "all") {
+      initialFlags();
+      setFilterType_1(value);
+      setFilterType_2(value);
+    } else if (type == "region") {
+      setFilterType_1(value);
+      setFilterType_2("All");
+      setInFilter(true);
+      let url = `https://restcountries.com/v3.1/region/${value}`;
+      const data = await getInformation(url);
+      setFilter(data);
+      setSaved(data.slice(0, 50));
+      setCountriesLimit(data.length);
+    } else if (type == "subregion") {
+      setFilterType_2(value);
+      setFilterType_1("All");
+    } else initialFlags();
   };
 
   useEffect(() => {
@@ -68,7 +97,10 @@ function CountriesContextProvider({ children }) {
         countriesLimit,
         handlerClickMoreCountries,
         handlerChangeSearch,
+        handlerChangeFilter,
         deleteSearch,
+        filterType_1,
+        filterType_2,
       }}
     >
       {children}
