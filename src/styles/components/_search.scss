@@ -7,8 +7,6 @@
   padding: 0.3rem 0.5rem;
   border: 2px solid $main;
   border-radius: 0.4rem;
-  max-width: 25rem;
-  margin: auto;
   background-color: $black;
 
   &__input {
@@ -19,5 +17,11 @@
   &__icon {
     font-size: 1.6rem;
     color: $main;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .search {
+    width: 100%;
   }
 }

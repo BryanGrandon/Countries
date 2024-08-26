@@ -13,5 +13,7 @@
 
   &__options {
     padding: 2rem 0;
+    @include customFlex(row, wrap, space-evenly, normal);
+    gap: 1rem;
   }
 }

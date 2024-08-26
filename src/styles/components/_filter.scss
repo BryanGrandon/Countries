@@ -6,12 +6,16 @@
   border: 2px solid $main;
   background-color: $black;
   border-radius: 0.5rem;
-  overflow: hidden;
   cursor: pointer;
+
+  &__list {
+    position: relative;
+  }
 
   &__header {
     @include customFlex(row, nowrap, space-between, center);
     padding: 0.4rem 1rem;
+    gap: 1rem;
 
     &-text {
       color: $secondary;
@@ -22,8 +26,13 @@
 
 .list {
   @include customFlex(column, nowrap, normal, normal);
-  border-top: 2px solid $main;
+  border: 2px solid $main;
+  background-color: $black;
+  border-radius: 0.5rem;
   padding: 0.5rem 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
 
   &__option {
     cursor: pointer;
@@ -36,5 +45,11 @@
     &:hover {
       color: $secondary;
     }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .filter {
+    width: 100%;
   }
 }
