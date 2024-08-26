@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { useCountriesContext } from "../context/countries-context";
 
@@ -32,10 +32,7 @@ function Filter({ onChange, name, options }) {
       className="filter"
       onSubmit={(e) => e.preventDefault()}
     >
-      <section
-        className={`filter__header  header-${name}`}
-        onClick={handlerClickDropdown}
-      >
+      <section className="filter__header" onClick={handlerClickDropdown}>
         <p>
           Filter by {name}{" "}
           <span className={`filter__header-text text-${name}`}>
@@ -44,20 +41,32 @@ function Filter({ onChange, name, options }) {
         </p>
         {isDropdown ? <IoIosArrowUp /> : <IoIosArrowDown />}
       </section>
-      {isDropdown ? (
-        <section className="list">
-          {options.map((n) => (
-            <label
-              className="list__option"
-              key={Math.random() * 10}
-              onChange={handler}
-            >
-              {n}
-              <input type="radio" value={n} name={name} />
-            </label>
-          ))}
-        </section>
-      ) : null}
+      <section className="filter__list">
+        {isDropdown ? (
+          <section className="list">
+            {options.map((n) => (
+              <label
+                className="list__option"
+                key={Math.random() * 10}
+                onChange={handler}
+                style={{
+                  color:
+                    name == "region"
+                      ? filterType_1 == n
+                        ? "#f3bf99"
+                        : "#fff"
+                      : filterType_2 == n
+                      ? "#f3bf99"
+                      : "#fff",
+                }}
+              >
+                {n}
+                <input type="radio" value={n} name={name} />
+              </label>
+            ))}
+          </section>
+        ) : null}
+      </section>
     </form>
   );
 }

@@ -2,7 +2,8 @@ const regionFilter = ["all", "asia", "africa", "americas", "europe", "oceania"];
 const subregionFilter = [
   "all",
   "north america",
-  "central america, south america",
+  "central america",
+  "south america",
   "caribbean",
   "central asia",
   "Western Asia",

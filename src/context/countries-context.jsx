@@ -44,8 +44,8 @@ function CountriesContextProvider({ children }) {
   const handlerChangeSearch = (e) => {
     let value = e.target.value.toLowerCase();
     if (value !== "") {
-      setFilterType_1("All");
-      setFilterType_2("All");
+      setFilterType_1("all");
+      setFilterType_2("all");
       setInSearch(true);
       let filtering = allCountries.filter((e) =>
         e.name.common.toLowerCase().includes(value)
@@ -60,8 +60,8 @@ function CountriesContextProvider({ children }) {
   const [inFilter, setInFilter] = useState(false);
   const [filter, setFilter] = useState();
   // filter name
-  const [filterType_1, setFilterType_1] = useState("All");
-  const [filterType_2, setFilterType_2] = useState("All");
+  const [filterType_1, setFilterType_1] = useState("all");
+  const [filterType_2, setFilterType_2] = useState("all");
 
   const filterOption = (data) => {
     setInFilter(true);
@@ -75,18 +75,19 @@ function CountriesContextProvider({ children }) {
     let value = e.target.value;
 
     if (value == "all") {
+      setInFilter(false);
       initialFlags();
       setFilterType_1(value);
       setFilterType_2(value);
     } else if (type == "region") {
       setFilterType_1(value);
-      setFilterType_2("All");
+      setFilterType_2("all");
       let url = `https://restcountries.com/v3.1/region/${value}`;
       const data = await getInformation(url);
       filterOption(data);
     } else if (type == "subregion") {
       setFilterType_2(value);
-      setFilterType_1("All");
+      setFilterType_1("all");
       let url = `https://restcountries.com/v3.1/subregion/${value}`;
       const data = await getInformation(url);
       filterOption(data);
