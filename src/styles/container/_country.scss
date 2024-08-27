@@ -1,0 +1,37 @@
+@use "../imports/tools" as *;
+@use "../imports/settings" as *;
+
+.country {
+  &__main {
+    @include customFlex(row, wrap, space-evenly, normal);
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  &__nav {
+    @include customFlex(row, nowrap, space-between, center);
+
+    &-title {
+      text-align: center;
+      font-size: 2rem;
+      font-family: "Nasalization", sans-serif;
+      letter-spacing: 1px;
+    }
+
+    &-btn {
+      padding: 1rem;
+      border-radius: 50%;
+    }
+  }
+
+  &__svg {
+    border-radius: 0.5rem;
+    max-width: 25rem;
+    max-height: 18rem;
+  }
+}
+
+#map {
+  border: 1px solid #f00;
+  height: 20rem;
+}

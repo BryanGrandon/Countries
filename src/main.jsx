@@ -2,8 +2,9 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.scss";
 import { createHashRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/home";
 import { CountriesContextProvider } from "./context/countries-context";
+import Home from "./pages/home";
+import Country from "./pages/country";
 
 const router = createHashRouter([
   {
@@ -12,7 +13,7 @@ const router = createHashRouter([
   },
   {
     path: "/:name",
-    element: <div>Name</div>,
+    element: <Country />,
   },
 ]);
 
