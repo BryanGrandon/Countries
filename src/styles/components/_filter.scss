@@ -22,6 +22,9 @@
       text-transform: capitalize;
     }
   }
+  &__on {
+    color: $secondary;
+  }
 }
 
 .list {

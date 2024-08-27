@@ -29,12 +29,12 @@ function Home() {
           <Search onChange={handlerChangeSearch} />
           <Filter
             onChange={handlerChangeFilter}
-            name="region"
+            type="region"
             options={regionFilter}
           />
           <Filter
             onChange={handlerChangeFilter}
-            name="subregion"
+            type="subregion"
             options={subregionFilter}
           />
         </section>
