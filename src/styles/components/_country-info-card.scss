@@ -1,0 +1,25 @@
+@use "../imports/tools" as *;
+@use "../imports/settings" as *;
+
+.list-info {
+  @include customFlex(column, nowrap, space-evenly, normal);
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  font-size: 1.1rem;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  &__element {
+    font-weight: bold;
+    color: $secondary;
+  }
+  &__li {
+    @include customFlex(row, wrap, normal, normal);
+    gap: 0.5rem;
+  }
+}
