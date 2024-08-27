@@ -9,7 +9,7 @@
 
 html {
   @include customScroll($main, $stroke, 0.1rem);
-  @include customSelection($main, $stroke);
+  @include customSelection($secondary, $stroke);
 }
 
 /* We reset the margins and paddings of all labels. */

@@ -6,6 +6,7 @@
   gap: 1rem;
   padding: 1.5rem 2rem;
   font-size: 1.1rem;
+  width: 25rem;
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
@@ -15,11 +16,17 @@
   border: 1px solid rgba(255, 255, 255, 0.4);
 
   &__element {
+    @include customFlex(row, nowrap, normal, center);
+    gap: 0.5rem;
+
     font-weight: bold;
     color: $secondary;
   }
   &__li {
     @include customFlex(row, wrap, normal, normal);
     gap: 0.5rem;
+  }
+  &__link {
+    border-bottom: 1px solid $secondary;
   }
 }

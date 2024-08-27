@@ -1,9 +1,11 @@
+import { PiCursorClickBold } from "react-icons/pi";
 function CountryInfoCard({
   capital,
   population,
   languages,
   region,
   subregion,
+  link,
 }) {
   return (
     <ul className="list-info">
@@ -21,6 +23,16 @@ function CountryInfoCard({
       </li>
       <li className="list-info__li">
         Subregion: <span className="list-info__element">{subregion}</span>
+      </li>
+      <li className="list-info__li">
+        Location:
+        <a
+          className="list-info__element  list-info__link"
+          href={link}
+          target="__black"
+        >
+          Google Maps <PiCursorClickBold />
+        </a>
       </li>
     </ul>
   );

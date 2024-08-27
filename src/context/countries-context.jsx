@@ -14,10 +14,10 @@ function CountriesContextProvider({ children }) {
   const [countriesLimit, setCountriesLimit] = useState();
 
   const getAllCountries = async () => {
-    const data = await getInformation("https://restcountries.com/v3.1/all");
+    const data = await getInformation("all");
     setAllCountries(data);
     setSaved(data.slice(0, 50));
-    setCountriesLimit(data.length);
+    setCountriesLimit(data?.length);
   };
 
   const initialFlags = () => {
