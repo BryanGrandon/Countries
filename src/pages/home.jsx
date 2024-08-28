@@ -7,6 +7,7 @@ import DefaultButton from "../components/default-button";
 
 import Filter from "../components/filter";
 import { regionFilter, subregionFilter } from "../services/javascript/filter";
+import NoFound from "../components/no-found";
 
 function Home() {
   // variable
@@ -47,6 +48,7 @@ function Home() {
             />
           ))}
         </section>
+        {saved?.length == 0 ? <NoFound /> : null}
         <section className="main__button">
           {saved?.length < countriesLimit ? (
             <DefaultButton
@@ -55,7 +57,6 @@ function Home() {
             />
           ) : null}
         </section>
-        {saved?.length == 0 ? <p>No Found</p> : null}
       </main>
     </article>
   );
