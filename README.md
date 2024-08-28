@@ -37,5 +37,4 @@ The main idea is to create a website that allows you to search for a country or 
 | ⌛ In progress | 2024-08-20 |          |
 
 <!-- ## 🌐 Website -->
-
-<!-- <img src="./src/assets/website.png" alt="website" width="900px" /> -->w
+<!-- <img src="./src/assets/website.png" alt="website" width="900px" /> -->
