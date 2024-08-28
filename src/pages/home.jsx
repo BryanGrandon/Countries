@@ -8,6 +8,7 @@ import DefaultButton from "../components/default-button";
 import Filter from "../components/filter";
 import { regionFilter, subregionFilter } from "../services/javascript/filter";
 import NoFound from "../components/no-found";
+import Footer from "../components/container/footer";
 
 function Home() {
   // variable
@@ -58,6 +59,8 @@ function Home() {
           ) : null}
         </section>
       </main>
+
+      <Footer />
     </article>
   );
 }
