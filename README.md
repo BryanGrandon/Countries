@@ -32,9 +32,10 @@ The main idea is to create a website that allows you to search for a country or 
 
 ## 📊 Project status
 
-| Status         | Start date | End date |
-| -------------- | ---------- | -------- |
-| ⌛ In progress | 2024-08-20 |          |
+| Status       | Start date | End date   |
+| ------------ | ---------- | ---------- |
+| ✅ Completed | 2024-08-20 | 2024-08-28 |
 
-<!-- ## 🌐 Website -->
-<!-- <img src="./src/assets/website.png" alt="website" width="900px" /> -->
+## 🌐 [Website](https://bryangrandon.github.io/Countries/)
+
+<img src="./src/assets/website.png" alt="website" width="900px" />
