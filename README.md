@@ -1,8 +1,19 @@
 # Countries
 
-The main idea is to create a site where you can see all the countries with their flag and name.
+The main idea is to create a website that allows you to search for a country or to be able to see the different flags of other countries.
 
-<!-- ## ⚙️ Function of the website -->
+## ⚙️ Function of the website
+
+- Search: Allows you to search for the desired country.
+- Filter region: Displays the countries in that selected region.
+- Filter subregion: Displays the countries of the selected subregion.
+- Country card: Allows to display the flag and country name
+
+  <img src="./src/assets/country-card.png" alt="Country-card" width="200px" />
+
+  When you click on the country card, another page will appear where you will be able to see more details about the country.
+
+    <img src="./src/assets/country.png" alt="country" width="550px"  />
 
 ## 🚀 Technologies and tools used
 
@@ -26,3 +37,5 @@ The main idea is to create a site where you can see all the countries with their
 | ⌛ In progress | 2024-08-20 |          |
 
 <!-- ## 🌐 Website -->
+
+<!-- <img src="./src/assets/website.png" alt="website" width="900px" /> -->w
