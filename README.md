@@ -1,41 +1,44 @@
 # Countries
 
-The main idea is to create a website that allows you to search for a country or to be able to see the different flags of other countries.
+Countries is a website for quickly and visually searching and consulting data on countries around the world.
 
-## ⚙️ Function of the website
+- [API.](https://restcountries.com/).
+- [🌐 Website Demo.](https://bryangrandon.github.io/Countries/)
 
-- Search: Allows you to search for the desired country.
-- Filter region: Displays the countries in that selected region.
-- Filter subregion: Displays the countries of the selected subregion.
-- Country card: Allows to display the flag and country name
+## 📚 Technologies Used
 
-  <img src="./src/assets/country-card.png" alt="Country-card" width="200px" />
+[![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff)](https://vite.dev/)
+[![sass](https://img.shields.io/badge/Sass-CC6699?style=flat&logo=sass&logoColor=white)](https://sass-lang.com/)
+[![React-icons](https://img.shields.io/badge/React_icons-2D3136.svg?style=flat&logo=react&logoColor=white)](https://www.npmjs.com/package/react-icons)
+[![React router dom](https://img.shields.io/badge/-React%20Router-CA4245??style=flat&logo=react-router&logoColor=white)](https://reactrouter.com/en/main)
 
-  When you click on the country card, another page will appear where you will be able to see more details about the country.
+## ⚙️ Installation
 
-    <img src="./src/assets/country.png" alt="country" width="550px"  />
+Clone the repository:
 
-## 🚀 Technologies and tools used
+```bash
+git clone https://github.com/BryanGrandon/Countries.git
+```
 
-- [ReactJS](https://es.react.dev/)
-- [Vite](https://vitejs.dev/)
+Access the project folder
 
-### Dependencies
+```bash
+cd Countries
+```
 
-- [sass](https://sass-lang.com/)
-- [React-icons](https://www.npmjs.com/package/react-icons)
-- [React-router](https://reactrouter.com/en/main)
+Install all the project dependencies with:
 
-### API
+```bash
+npm install
+```
 
-- [Rest Countries](https://restcountries.com/).
+And start the development server with:
 
-## 📊 Project status
+```bash
+npm run dev
+```
 
-| Status       | Start date | End date   |
-| ------------ | ---------- | ---------- |
-| ✅ Completed | 2024-08-20 | 2024-08-28 |
+## License
 
-## 🌐 [Website](https://bryangrandon.github.io/Countries/)
-
-<img src="./src/assets/website.png" alt="website" width="900px" />
+See the [LICENSE](/LICENSE.MD) file for license rights and limitations (MIT).
