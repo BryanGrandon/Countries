@@ -1,11 +1,11 @@
-@use "./styles/imports/components";
-@use "./styles/imports/container";
-@use "./styles/imports/generic";
-@use "./styles/imports/settings" as *;
-@use "./styles/imports/tools" as *;
+@use './styles/imports/components';
+@use './styles/imports/container';
+@use './styles/imports/generic';
+@use './styles/imports/settings' as *;
+@use './styles/imports/tools' as *;
 
 body {
-  background-image: url("https://cdn.pixabay.com/photo/2022/02/13/14/50/space-7011298_1280.jpg");
+  background-image: url('https://i.pinimg.com/originals/68/93/9d/68939d5e55dd29fc4fa31b5cb0f82ba6.jpg');
   background-size: contain;
   color: $white;
 }

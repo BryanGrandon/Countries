@@ -8,7 +8,7 @@ const useCountriesContext = () => {
   return useContext(CountriesContext)
 }
 
-function CountriesContextProvider(children) {
+function CountriesContextProvider({ children }) {
   const [allCountries, setAllCountries] = useState()
   const [saved, setSaved] = useState()
   const [countriesLimit, setCountriesLimit] = useState()
