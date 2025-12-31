@@ -2,7 +2,7 @@
 
 Countries is a website for quickly and visually searching and consulting data on countries around the world.
 
-- [API.](https://restcountries.com/).
+- [API.](https://restcountries.com/)
 - [🌐 Website Demo.](https://bryangrandon.github.io/Countries/)
 
 ## 📚 Technologies Used
